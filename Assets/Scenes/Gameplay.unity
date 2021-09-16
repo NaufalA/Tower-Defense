@@ -777,6 +777,8 @@ MonoBehaviour:
   - {fileID: 1732750161}
   - {fileID: 787362767}
   spawnDelay: 5
+  _spawnedEnemies: []
+  _spawnedBullets: []
 --- !u!1 &787362766
 GameObject:
   m_ObjectHideFlags: 0

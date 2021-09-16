@@ -31,8 +31,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float spawnDelay = 5f;
 
     
-    private List<Tower> _spawnedTowers = new List<Tower>();
+    [SerializeField] private List<Tower> _spawnedTowers = new List<Tower>();
     [SerializeField] private List<Enemy> _spawnedEnemies = new List<Enemy>();
+    [SerializeField] private List<Bullet> _spawnedBullets = new List<Bullet>();
     
     private float _runningSpawnDelay;
 
@@ -61,7 +62,6 @@ public class LevelManager : MonoBehaviour
 
             if (Vector2.Distance(enemy.transform.position, enemy.TargetPosition) < 0.1f)
             {
-                Debug.Log(Vector2.Distance(enemy.transform.position, enemy.TargetPosition));
                 enemy.SetCurrentPathIndex(enemy.CurrentPathIndex+1);
                 if (enemy.CurrentPathIndex < enemyPaths.Length)
                 {
@@ -78,6 +78,12 @@ public class LevelManager : MonoBehaviour
             }
         }
 
+        foreach (Tower tower in _spawnedTowers)
+        {
+            tower.CheckNearestEnemy(_spawnedEnemies);
+            tower.SeekTarget();
+            tower.ShootTarget();
+        }
     }
 
     private void InstantiateAllTowerUI()
@@ -121,6 +127,41 @@ public class LevelManager : MonoBehaviour
         newEnemy.SetTargetPosition(enemyPaths[1].position);
         newEnemy.SetCurrentPathIndex(1);
         newEnemy.gameObject.SetActive(true);
+    }
+
+    public Bullet GetBulletFromPool(Bullet bullet)
+    {
+
+        GameObject newBulletObj = _spawnedBullets.Find(
+            e => !e.gameObject.activeSelf && e.name.Contains(bullet.name)
+        )?.gameObject;
+
+        if (newBulletObj == null)
+        {
+            newBulletObj = Instantiate(bullet.gameObject);
+        }
+
+        Bullet newBullet = newBulletObj.GetComponent<Bullet>();
+        if (!_spawnedBullets.Contains(newBullet))
+        {
+            _spawnedBullets.Add(newBullet);
+        }
+
+        return newBullet;
+    }
+
+    public void ExplodeAt(Vector2 point, float radius, int damage)
+    {
+        foreach (Enemy enemy in _spawnedEnemies)
+        {
+            if (gameObject.activeSelf)
+            {
+                if (Vector3.Distance(enemy.transform.position, point) <= radius)
+                {
+                    enemy.ReduceEnemyHealth(damage);
+                }
+            }
+        }
     }
 
     private void OnDrawGizmos()

@@ -141,15 +141,15 @@ Transform:
   m_Children:
   - {fileID: 926355244}
   - {fileID: 790363350}
+  - {fileID: 1000751624}
+  - {fileID: 469824233}
   - {fileID: 1279029790}
   - {fileID: 1785420111}
   - {fileID: 489566110}
+  - {fileID: 1637767094}
+  - {fileID: 638515084}
   - {fileID: 1732750161}
   - {fileID: 787362767}
-  - {fileID: 1000751624}
-  - {fileID: 469824233}
-  - {fileID: 638515084}
-  - {fileID: 1637767094}
   m_Father: {fileID: 736657203}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -337,7 +337,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197554330}
-  m_RootOrder: 8
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &469824234
 SpriteRenderer:
@@ -416,7 +416,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197554330}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &489566111
 SpriteRenderer:
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 638515084}
   - component: {fileID: 638515085}
   m_Layer: 0
-  m_Name: road_2 (3)
+  m_Name: road_2 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -611,7 +611,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197554330}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &638515085
 SpriteRenderer:
@@ -761,6 +761,22 @@ MonoBehaviour:
   - {fileID: 6963568007861859369, guid: 2ca5589188496bbd0a992e38b8b46f42, type: 3}
   - {fileID: 3296397875340172905, guid: b153c45a99c5efcb09f0a3fcf5892de6, type: 3}
   - {fileID: 2826991536808901612, guid: 5c4357d1c272c9a6d9f6eda64b93df77, type: 3}
+  enemyPrefabs:
+  - {fileID: 5225314937440500553, guid: 8f88b7fc910f07b199a5006013eca19b, type: 3}
+  - {fileID: 2635454823031312267, guid: 1bbc235bba94ba74d987d527da89b2c5, type: 3}
+  enemyPaths:
+  - {fileID: 926355244}
+  - {fileID: 790363350}
+  - {fileID: 1000751624}
+  - {fileID: 469824233}
+  - {fileID: 1279029790}
+  - {fileID: 1785420111}
+  - {fileID: 489566110}
+  - {fileID: 1637767094}
+  - {fileID: 638515084}
+  - {fileID: 1732750161}
+  - {fileID: 787362767}
+  spawnDelay: 5
 --- !u!1 &787362766
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +806,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197554330}
-  m_RootOrder: 6
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &787362768
 SpriteRenderer:
@@ -1027,7 +1043,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197554330}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1000751625
 SpriteRenderer:
@@ -1344,7 +1360,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197554330}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1279029791
 SpriteRenderer:
@@ -1405,7 +1421,7 @@ GameObject:
   - component: {fileID: 1637767094}
   - component: {fileID: 1637767095}
   m_Layer: 0
-  m_Name: road_2 (4)
+  m_Name: road_2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1423,7 +1439,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197554330}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &1637767095
 SpriteRenderer:
@@ -1502,7 +1518,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197554330}
-  m_RootOrder: 5
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1732750162
 SpriteRenderer:
@@ -1581,7 +1597,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197554330}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1785420112
 SpriteRenderer:

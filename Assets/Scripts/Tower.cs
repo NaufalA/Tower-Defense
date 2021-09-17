@@ -16,8 +16,8 @@ public class Tower : MonoBehaviour
 
     [SerializeField] private Bullet bulletPrefab;
 
-    [SerializeField] private float _runningShootDelay;
-    [SerializeField] private Enemy _targetEnemy;
+    private float _runningShootDelay;
+    private Enemy _targetEnemy;
     private Quaternion _targetRotation;
     
     public Vector2? PlacePosition { get; set; }
@@ -126,8 +126,10 @@ public class Tower : MonoBehaviour
             Quaternion.RotateTowards(towerHead.transform.rotation, _targetRotation, Time.deltaTime * 180f);
     }
 
+    // Debug methods
     private void OnDrawGizmos()
     {
+        // to show tower shoot range
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, shootDistance);
     }

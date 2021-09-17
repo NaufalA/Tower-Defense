@@ -5,14 +5,19 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private int _bulletPower;
-    [SerializeField] private float _bulletSpeed;
-    [SerializeField] private float _bulletSplashRadius;
+    private int _bulletPower;
+    private float _bulletSpeed;
+    private float _bulletSplashRadius;
 
-    [SerializeField] private Enemy _targetEnemy;
+    private Enemy _targetEnemy;
 
     private void FixedUpdate()
     {
+        if (LevelManager.Instance.IsOver)
+        {
+            return;
+        }
+        
         if (_targetEnemy != null)
         {
             if (!_targetEnemy.gameObject.activeSelf)
@@ -67,6 +72,5 @@ public class Bullet : MonoBehaviour
     public void SetTargetEnemy(Enemy enemy)
     {
         _targetEnemy = enemy;
-        Debug.Log(_targetEnemy);
     }
 }

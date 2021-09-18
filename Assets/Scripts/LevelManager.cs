@@ -226,13 +226,13 @@ public class LevelManager : MonoBehaviour
     public void SetCurrentLives(int currentLives)
     {
         _currentLives = Mathf.Max(currentLives, 0);
-        livesInfo.text = $"Lives : {_currentLives}";
+        livesInfo.text = $"LIVES : {_currentLives}";
     }
 
     public void SetTotalEnemy(int totalEnemies)
     {
         _currentEnemyCount = Mathf.Max(totalEnemies, 0);
-        enemyInfo.text = $"Enemy Left : {_currentEnemyCount}";
+        enemyInfo.text = $"ENEMY LEFT : {_currentEnemyCount}";
     }
 
     public void SetGameOver(bool isWin)

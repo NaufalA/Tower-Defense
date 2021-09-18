@@ -352,7 +352,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Enemy Left : 0'
+  m_Text: 'ENEMY LEFT : 0'
 --- !u!222 &218345239
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -634,8 +634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d347be3e82cc2c8a8980c91caad1b745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _placedTower: {fileID: 0}
-  _candidateTower: {fileID: 0}
 --- !u!61 &293896117
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1144,8 +1142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d347be3e82cc2c8a8980c91caad1b745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _placedTower: {fileID: 0}
-  _candidateTower: {fileID: 0}
 --- !u!61 &595094291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2003,8 +1999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d347be3e82cc2c8a8980c91caad1b745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _placedTower: {fileID: 0}
-  _candidateTower: {fileID: 0}
 --- !u!61 &1105350249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2250,7 +2244,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Lives : 0'
+  m_Text: 'LIVES : 0'
 --- !u!222 &1471152187
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3377,8 +3371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d347be3e82cc2c8a8980c91caad1b745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _placedTower: {fileID: 0}
-  _candidateTower: {fileID: 0}
 --- !u!61 &2072082378
 BoxCollider2D:
   m_ObjectHideFlags: 0

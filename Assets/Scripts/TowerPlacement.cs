@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
 {
     private Tower _placedTower;
+    private Tower _candidateTower;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,8 +19,8 @@ public class TowerPlacement : MonoBehaviour
         Tower tower = other.GetComponent<Tower>();
         if (tower != null)
         {
-            tower.SetPlacePosition(transform.position);
-            _placedTower = tower;
+            _candidateTower = tower;
+            _candidateTower.SetPlacePosition(transform.position);
         }
     }
 
@@ -26,10 +28,19 @@ public class TowerPlacement : MonoBehaviour
     {
         if (_placedTower == null)
         {
-            return;
+            _placedTower = _candidateTower;
+            _candidateTower.SetPlacePosition(null);
+            _candidateTower = null;
         }
+    }
 
-        _placedTower.SetPlacePosition(null);
-        _placedTower = null;
+    public Tower GetPlacedTower()
+    {
+        return _placedTower;
+    }
+    
+    public void SetPlacedTower(Tower tower = null)
+    {
+        _placedTower = tower;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -42,6 +43,16 @@ public class TowerUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         }
         else
         {
+            foreach (var towerPlacement in LevelManager.Instance.towerPlacements)
+            {
+                Tower placedTower = towerPlacement.GetPlacedTower();
+                if (placedTower != null && towerPlacement.transform.position == placedTower.gameObject.transform.position)
+                {
+                    continue;
+                }
+                towerPlacement.SetPlacedTower(null);
+            }
+            
             _currentSpawnedTower.LockPlacement();
             _currentSpawnedTower.ToggleOrderInLayer(false);
             LevelManager.Instance.RegisterSpawnedTower(_currentSpawnedTower);

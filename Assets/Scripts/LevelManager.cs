@@ -26,13 +26,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int maxLives = 3;
     [SerializeField] private int totalEnemy = 15;
 
-    [SerializeField] private GameObject endPanel;
-    [SerializeField] private Text statusInfo;
     [SerializeField] private Text livesInfo;
     [SerializeField] private Text enemyInfo;
 
     [SerializeField] private Transform towerUIParent;
     [SerializeField] private GameObject towerUIPrefab;
+    public TowerPlacement[] towerPlacements;
     
     [SerializeField] private Tower[] towerPrefabs;
     [SerializeField] private Enemy[] enemyPrefabs;
@@ -61,7 +60,22 @@ public class LevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            UIPauseMenuController.Instance.RestartGame();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (IsOver == false)
+            {
+                if (Time.timeScale != 0f)
+                {
+                    UIPauseMenuController.Instance.PauseGame();
+                }
+                else
+                {
+                    UIPauseMenuController.Instance.ResumeGame();
+                }
+            }
         }
         // every <spawnDelay> seconds spawn enemy
         _runningSpawnDelay -= Time.unscaledDeltaTime;
@@ -202,7 +216,6 @@ public class LevelManager : MonoBehaviour
 
     public void ReduceLives(int value)
     {
-        Debug.Log(value);
         SetCurrentLives(value);
         if (_currentLives <= 0)
         {
@@ -218,7 +231,7 @@ public class LevelManager : MonoBehaviour
 
     public void SetTotalEnemy(int totalEnemies)
     {
-        _currentEnemyCount = totalEnemies;
+        _currentEnemyCount = Mathf.Max(totalEnemies, 0);
         enemyInfo.text = $"Enemy Left : {_currentEnemyCount}";
     }
 
@@ -226,8 +239,7 @@ public class LevelManager : MonoBehaviour
     {
         IsOver = true;
 
-        statusInfo.text = isWin ? "YOU WIN!" : "YOU LOSE!";
-        endPanel.gameObject.SetActive(true);
+        UIPauseMenuController.Instance.EndGame(isWin);
     }
 
     // Debug Methods
